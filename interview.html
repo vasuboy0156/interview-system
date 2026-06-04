@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervue // Premium AI Mock Interviewer & Comfort Coach</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Premium Gradient Animated Background Mesh -->
+    <div class="bg-mesh"></div>
+    <div class="bg-overlay"></div>
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-glow"></span>
+            <i data-lucide="sparkles" class="logo-icon"></i>
+            <h1>Intervue<span>.ai</span></h1>
+        </div>
+        <div class="header-badges">
+            <span class="badge badge-indigo">
+                <i data-lucide="shield-check"></i> Private & Local
+            </span>
+            <span class="badge badge-emerald" id="speech-support-badge">
+                <i data-lucide="mic"></i> Voice-Enabled
+            </span>
+        </div>
+    </header>
+    <!-- Main Content Container -->
+    <main class="app-container">
+        
+        <!-- ==================== SCREEN 1: WELCOME & SETUP ==================== -->
+        <section id="screen-welcome" class="app-screen active">
+            <div class="welcome-grid">
+                <div class="welcome-text-panel">
+                    <span class="accent-tag">Conquer Interview Anxiety</span>
+                    <h2 class="hero-title">Practice makes comfortable.</h2>
+                    <p class="hero-subtitle">
+                        An immersive AI-powered simulation that listens to your voice, monitors filler words, checks your pacing, and guides your breathing to build unshakeable confidence.
+                    </p>
+                    
+                    <!-- Calming tip banner -->
+                    <div class="glass-card welcome-tip-card">
+                        <div class="tip-icon-container">
+                            <i data-lucide="heart-handshake" class="text-indigo"></i>
+                        </div>
+                        <div>
+                            <h4>Stressed about interviewing?</h4>
+                            <p>Anxiety drops speaking clarity by 30%. Our pre-interview 4-7-8 breathing zones are scientifically proven to lower heart rates in minutes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Setup Card -->
+                <div class="glass-card setup-card">
+                    <h3 class="setup-title">Customize Your Session</h3>
+                    <form id="setup-form" onsubmit="event.preventDefault();">
+                        
+                        <!-- Step 1: Job Role -->
+                        <div class="form-group">
+                            <label for="job-role"><i data-lucide="briefcase"></i> Target Role / Discipline</label>
+                            <select id="job-role" class="form-select">
+                                <option value="software-engineer">Software Engineer (Generalist)</option>
+                                <option value="frontend-developer">Frontend Engineer</option>
+                                <option value="backend-developer">Backend / Systems Engineer</option>
+                                <option value="data-scientist">Data Scientist / AI Engineer</option>
+                                <option value="product-manager">Product Manager</option>
+                                <option value="behavioral-only">Behavioral Only (STAR Method Practice)</option>
+                            </select>
+                        </div>
+                        <!-- Step 2: Experience & Difficulty -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="experience-level"><i data-lucide="graduation-cap"></i> Seniority Level</label>
+                                <select id="experience-level" class="form-select">
+                                    <option value="junior">Junior / Associate</option>
+                                    <option value="mid" selected>Mid-level / Professional</option>
+                                    <option value="senior">Senior / Staff</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="session-length"><i data-lucide="clock"></i> Questions</label>
+                                <select id="session-length" class="form-select">
+                                    <option value="3">Quick Practice (3 Qs)</option>
+                                    <option value="5" selected>Standard (5 Qs)</option>
+                                    <option value="8">Full Mock (8 Qs)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Step 3: Interviewer Tone -->
+                        <div class="form-group">
+                            <label><i data-lucide="smile"></i> Interviewer Personality & Tone</label>
+                            <div class="personality-selector">
+                                <label class="personality-option active">
+                                    <input type="radio" name="interviewer-personality" value="friendly" checked>
+                                    <span class="option-content">
+                                        <i data-lucide="sparkles"></i>
+                                        <strong>Warm & Friendly</strong>
+                                        <small>Encouraging voice, slow pace, perfect for building confidence.</small>
+                                    </span>
+                                </label>
+                                <label class="personality-option">
+                                    <input type="radio" name="interviewer-personality" value="neutral">
+                                    <span class="option-content">
+                                        <i data-lucide="user-check"></i>
+                                        <strong>Professional</strong>
+                                        <small>Objective, structured, constructive but highly professional.</small>
+                                    </span>
+                                </label>
+                                <label class="personality-option">
+                                    <input type="radio" name="interviewer-personality" value="stress">
+                                    <span class="option-content">
+                                        <i data-lucide="zap"></i>
+                                        <strong>Challenging / Rapid</strong>
+                                        <small>Direct questions, intense delivery, tests composure under pressure.</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Step 4: Speech Mode Selection -->
+                        <div class="form-group">
+                            <label><i data-lucide="volume-2"></i> Audio & Speaking Options</label>
+                            <div class="checkbox-group">
+                                <label class="switch-container">
+                                    <input type="checkbox" id="enable-voice-synth" checked>
+                                    <span class="switch-slider"></span>
+                                    <span class="switch-label">Read questions aloud (Voice synthesis)</span>
+                                </label>
+                                <label class="switch-container">
+                                    <input type="checkbox" id="enable-speech-rec" checked>
+                                    <span class="switch-slider"></span>
+                                    <span class="switch-label">Answer via microphone (Voice recognition)</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-glow w-full" id="btn-enter-warmup">
+                            Proceed to Warm-up Zone <i data-lucide="arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== SCREEN 2: CALMING ZONE ==================== -->
+        <section id="screen-warmup" class="app-screen">
+            <div class="warmup-header">
+                <span class="accent-tag">The Calming Zone</span>
+                <h2>Calm your nerves. Tune your voice.</h2>
+                <p>Lower your heart rate and prepare your vocal cords with our brief, confidence-boosting warmups.</p>
+            </div>
+            <div class="warmup-grid">
+                <!-- Guided Breathing Coach -->
+                <div class="glass-card breathe-card">
+                    <div class="card-badge">Anxiety Reducer</div>
+                    <h3><i data-lucide="wind"></i> 4-7-8 Breathing Guide</h3>
+                    <p class="breathe-desc">Calm your sympathetic nervous system. Sit comfortably, relax your jaw, and follow the rhythm.</p>
+                    
+                    <div class="breathe-container">
+                        <div class="breathe-circle-outer"></div>
+                        <div class="breathe-circle-inner"></div>
+                        <div class="breathe-instruction">Ready</div>
+                        <div class="breathe-timer">4s</div>
+                    </div>
+                    <div class="breathe-controls">
+                        <button class="btn btn-secondary btn-sm" id="btn-start-breathing">
+                            <i data-lucide="play"></i> Start Guided Breathing
+                        </button>
+                        <button class="btn btn-secondary btn-sm hidden" id="btn-stop-breathing">
+                            <i data-lucide="square"></i> Stop
+                        </button>
+                    </div>
+                </div>
+                <!-- Right Column: Vocal Warmups & Confidence Boosters -->
+                <div class="warmup-side-panel">
+                    <!-- Tongue Twisters / Vocal Warmups -->
+                    <div class="glass-card vocal-card">
+                        <h3><i data-lucide="mic-2"></i> Articulation & Vocal Warm-ups</h3>
+                        <p class="section-desc">Click to cycle through voice exercises to relax your throat and avoid slurring:</p>
+                        
+                        <div class="warmup-display-box" id="tongue-twister-box">
+                            <p id="tongue-twister-text">"Red leather, yellow leather, red leather, yellow leather."</p>
+                            <span class="box-caption">Say this 5 times fast to loosen your speech muscles.</span>
+                        </div>
+                        <button class="btn btn-outline btn-sm w-full" id="btn-next-twister">
+                            <i data-lucide="shuffle"></i> Next Warm-up
+                        </button>
+                    </div>
+                    <!-- Confidence Affirmations -->
+                    <div class="glass-card affirmations-card">
+                        <h3><i data-lucide="brain-circuit"></i> Mental Resets</h3>
+                        <p class="section-desc">Read these mindfully to build confidence and center your thoughts:</p>
+                        
+                        <div class="warmup-display-box" id="affirmation-box">
+                            <p id="affirmation-text">"An interview is just a mutual conversation to see if we're a good fit, not an interrogation."</p>
+                            <span class="box-caption">Deep focus shift</span>
+                        </div>
+                        <button class="btn btn-outline btn-sm w-full" id="btn-next-affirmation">
+                            <i data-lucide="sparkles"></i> Next Mental Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Ready Action -->
+            <div class="warmup-actions">
+                <button class="btn btn-secondary" id="btn-back-to-setup">
+                    <i data-lucide="arrow-left"></i> Change Settings
+                </button>
+                <button class="btn btn-primary btn-glow" id="btn-start-simulation">
+                    Start Mock Interview <i data-lucide="rocket"></i>
+                </button>
+            </div>
+        </section>
+        <!-- ==================== SCREEN 3: INTERVIEW SIMULATOR ==================== -->
+        <section id="screen-simulation" class="app-screen">
+            <div class="simulation-layout">
+                <!-- Left Main Section: The Interviewer & Question Canvas -->
+                <div class="simulator-canvas">
+                    <!-- Session Status Bar -->
+                    <div class="session-progress-bar">
+                        <div class="progress-info">
+                            <span id="sim-role-badge" class="badge badge-indigo">Software Engineer</span>
+                            <span id="sim-question-counter" class="question-tracker">Question 1 of 5</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="sim-progress-fill" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    <!-- Interviewer Avatar & Speech Section -->
+                    <div class="glass-card interviewer-card">
+                        <div class="interviewer-avatar-container">
+                            <div class="avatar-glow-ring" id="avatar-glow"></div>
+                            <div class="avatar-face" id="avatar-face">
+                                <i data-lucide="bot" id="avatar-bot-icon"></i>
+                                <!-- Custom SVG animations will play inside here -->
+                                <div class="audio-wave-anim hidden" id="interviewer-wave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="avatar-badge" id="interviewer-status-badge">Speaking...</div>
+                        </div>
+                        <div class="interviewer-prompt-box">
+                            <span class="speaker-label" id="interviewer-name-tag">Interviewer (Warm & Friendly)</span>
+                            <p class="interviewer-question-text" id="interviewer-question-text">
+                                "Welcome! Let's start with a warm-up. Can you introduce yourself and tell me about a recent project you are proud of?"
+                            </p>
+                            <button class="btn btn-icon btn-secondary" id="btn-repeat-question" title="Repeat Question">
+                                <i data-lucide="volume-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- User Answer Input Area -->
+                    <div class="glass-card response-card">
+                        <div class="response-header">
+                            <h3><i data-lucide="user"></i> Your Response</h3>
+                            <div class="speech-control-badges">
+                                <span class="badge badge-emerald hidden" id="rec-recording-badge">
+                                    <span class="pulse-dot"></span> Listening...
+                                </span>
+                                <span class="badge badge-amber hidden" id="rec-paused-badge">
+                                    Paused
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Live Text Answer Display / Editor -->
+                        <div class="response-input-wrapper">
+                            <!-- Animated Speech Recognition Waves when listening -->
+                            <div class="voice-input-visualizer hidden" id="voice-waves">
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                            </div>
+                            <textarea id="user-response-textarea" class="response-textarea" placeholder="Click 'Start Answer' to speak, or start typing your answer here directly..."></textarea>
+                        </div>
+                        <div class="response-controls">
+                            <!-- Toggle Voice Input -->
+                            <button class="btn btn-primary" id="btn-toggle-mic">
+                                <i data-lucide="mic"></i> <span id="btn-mic-text">Start Speaking</span>
+                            </button>
+                            
+                            <button class="btn btn-secondary hidden" id="btn-pause-mic">
+                                <i data-lucide="pause"></i> Pause Mic
+                            </button>
+                            <button class="btn btn-outline" id="btn-clear-response">
+                                <i data-lucide="trash-2"></i> Clear
+                            </button>
+                            <div class="right-actions">
+                                <button class="btn btn-emerald btn-glow" id="btn-submit-answer">
+                                    Submit Answer <i data-lucide="arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Section: Real-time Anxiety & Pacing Sidecoach -->
+                <aside class="side-coach-panel">
+                    <!-- Speech Flow Coach -->
+                    <div class="glass-card coach-card">
+                        <div class="card-badge bg-emerald-dim text-emerald">Live Coach</div>
+                        <h3><i data-lucide="activity"></i> Comfort & Confidence Coach</h3>
+                        <p class="section-desc">Your real-time speech telemetry. Take your time, breathe, and speak steadily.</p>
+                        
+                        <!-- Pacing speedometer meter -->
+                        <div class="coach-stat">
+                            <div class="stat-header">
+                                <span>Pacing (Words Per Minute)</span>
+                                <strong id="live-wpm">0 WPM</strong>
+                            </div>
+                            <div class="speedometer-track">
+                                <div class="speedometer-pointer" id="speed-pointer" style="left: 50%;"></div>
+                                <div class="speedometer-zone slow">Slow</div>
+                                <div class="speedometer-zone ideal">Perfect (110-150)</div>
+                                <div class="speedometer-zone fast">Fast</div>
+                            </div>
+                            <span class="stat-coaching-tip" id="live-pacing-feedback">Start speaking to track your speed. Aim for a relaxed, storytelling pace.</span>
+                        </div>
+                        <!-- Filler words counters -->
+                        <div class="coach-stat">
+                            <div class="stat-header">
+                                <span>Anxiety Fillers Tracked</span>
+                                <strong class="text-amber" id="live-fillers-total">0 words</strong>
+                            </div>
+                            
+                            <div class="filler-pill-grid">
+                                <div class="filler-pill" data-word="um">
+                                    <span class="label">um / uh</span>
+                                    <span class="count" id="count-um">0</span>
+                                </div>
+                                <div class="filler-pill" data-word="like">
+                                    <span class="label">like</span>
+                                    <span class="count" id="count-like">0</span>
+                                </div>
+                                <div class="filler-pill" data-word="so">
+                                    <span class="label">so / basically</span>
+                                    <span class="count" id="count-so">0</span>
+                                </div>
+                                <div class="filler-pill" data-word="you-know">
+                                    <span class="label">you know</span>
+                                    <span class="count" id="count-you-know">0</span>
+                                </div>
+                            </div>
+                            <span class="stat-coaching-tip text-amber-dim" id="live-filler-feedback">
+                                Pro-Tip: When you feel the urge to say a filler word, simply pause and take a silent breath instead.
+                            </span>
+                        </div>
+                        <!-- Live Comfort Indicator -->
+                        <div class="coach-stat">
+                            <div class="stat-header">
+                                <span>Anxiety Control Index</span>
+                                <strong id="live-comfort-score">100%</strong>
+                            </div>
+                            <div class="score-bar-track">
+                                <div class="score-bar-fill" id="live-comfort-bar" style="width: 100%;"></div>
+                            </div>
+                            <span class="stat-coaching-tip" id="live-anxiety-tip">Excellent! Steady speech rhythm and minimal fillers. You look highly confident.</span>
+                        </div>
+                    </div>
+                    <!-- Calming reminder widget -->
+                    <div class="glass-card calming-tip-widget">
+                        <div class="pulse-icon">
+                            <i data-lucide="smile" class="text-emerald"></i>
+                        </div>
+                        <div>
+                            <h5>Anxious right now?</h5>
+                            <p>It is perfectly normal. Pause, lower your shoulders, and speak slower than you think you need to. You have got this!</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-sm w-full btn-emergency-calm" id="btn-sim-emergency-calm">
+                        <i data-lucide="wind"></i> Need a quick 20s breathing break?
+                    </button>
+                </aside>
+            </div>
+        </section>
+        <!-- ==================== SCREEN 4: DETAILED PERFORMANCE REPORT ==================== -->
+        <section id="screen-report" class="app-screen">
+            <div class="report-header">
+                <span class="accent-tag">Performance Review</span>
+                <h2>Detailed Practice Feedback</h2>
+                <p id="report-meta-text">Session summary for Senior Frontend Engineer Interview (Friendly Tone)</p>
+            </div>
+            <!-- Dashboard Grid -->
+            <div class="report-dashboard">
+                <!-- Top Big Stats -->
+                <div class="report-stats-grid">
+                    <div class="glass-card stat-card">
+                        <div class="stat-icon bg-emerald-dim text-emerald">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Session Grade</h3>
+                            <div class="huge-value" id="report-grade">A-</div>
+                            <p id="report-grade-caption">Highly composed articulation</p>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-icon bg-indigo-dim text-indigo">
+                            <i data-lucide="gauge"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Average Pacing</h3>
+                            <div class="huge-value" id="report-avg-wpm">124 <small>WPM</small></div>
+                            <p class="text-emerald" id="report-pacing-status"><i data-lucide="check-circle-2"></i> Perfect Rhythm</p>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-icon bg-amber-dim text-amber">
+                            <i data-lucide="alert-triangle"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Filler Word Rate</h3>
+                            <div class="huge-value" id="report-fillers-total">4 <small>times</small></div>
+                            <p id="report-fillers-status">Very minimal fillers (Top 10%)</p>
+                        </div>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-icon bg-purple-dim text-purple">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Confidence Score</h3>
+                            <div class="huge-value" id="report-confidence-score">92%</div>
+                            <p id="report-confidence-status">High verbal stability</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Structured Feedback Columns -->
+                <div class="report-insights-grid">
+                    
+                    <!-- Left: Answer Timeline & Review -->
+                    <div class="report-main-insights">
+                        <h3 class="insights-title"><i data-lucide="list-checks"></i> Answer Breakdown & STAR Analysis</h3>
+                        
+                        <div class="qa-timeline" id="report-qa-timeline">
+                            <!-- Dynamic QA Items will be inserted here by JavaScript -->
+                            <div class="qa-item">
+                                <div class="qa-badge">Q1</div>
+                                <div class="glass-card qa-card">
+                                    <h4 class="qa-question">"Can you introduce yourself and tell me about a recent project you are proud of?"</h4>
+                                    <div class="qa-user-answer">
+                                        <h5>Your Answer Transcript:</h5>
+                                        <p>"Um, yes, absolutely. I recently led the development of a real-time analytics dashboard using React. So, the main problem was, uh, performance lags, which we resolved by implementing virtualized lists, and basically, we increased efficiency by 40%."</p>
+                                    </div>
+                                    <div class="qa-metrics">
+                                        <span class="metric-pill slow-pill"><i data-lucide="gauge"></i> 98 WPM (A bit slow)</span>
+                                        <span class="metric-pill filler-pill"><i data-lucide="alert-circle"></i> 3 fillers</span>
+                                        <span class="metric-pill star-pill"><i data-lucide="star"></i> STAR Score: 85%</span>
+                                    </div>
+                                    <div class="qa-star-details">
+                                        <h5><i data-lucide="star" class="text-amber"></i> STAR Structure Check:</h5>
+                                        <ul class="star-check-list">
+                                            <li class="checked"><i data-lucide="check"></i> <strong>Situation:</strong> Introduced React dashboard project context.</li>
+                                            <li class="checked"><i data-lucide="check"></i> <strong>Task:</strong> Highlighted performance lag bottlenecks.</li>
+                                            <li class="checked"><i data-lucide="check"></i> <strong>Action:</strong> Implemented virtualized lists efficiently.</li>
+                                            <li class="checked"><i data-lucide="check"></i> <strong>Result:</strong> Explicitly stated 40% increase in performance.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="qa-coach-feedback">
+                                        <h5><i data-lucide="lightbulb" class="text-indigo"></i> Comfort Coaching Review:</h5>
+                                        <p>You did an excellent job wrapping up with a metrics-driven outcome. However, your opening was hesitant. Next time, take a deep breath before speaking and replace your starting "Um, yes, absolutely" with a direct, confident sentence like, "I'd be glad to share that with you..."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Sidebar: Psychological Comfort Review & Local History -->
+                    <div class="report-side-coaching">
+                        <!-- Comfort Coach Global Evaluation -->
+                        <div class="glass-card comfort-eval-card">
+                            <h3><i data-lucide="heart-pulse"></i> Comfort Coach Diagnostic</h3>
+                            <p>Anxiety-reduction analytics based on your voice parameters, fillers, and session speed:</p>
+                            
+                            <div class="eval-meter-group">
+                                <div class="eval-bar-item">
+                                    <div class="eval-label">
+                                        <span>Articulative Clarity</span>
+                                        <strong>Excellent (94%)</strong>
+                                    </div>
+                                    <div class="eval-bar"><div class="eval-bar-fill bg-emerald" style="width: 94%;"></div></div>
+                                </div>
+                                <div class="eval-bar-item">
+                                    <div class="eval-label">
+                                        <span>Rhythm & Pausing Balance</span>
+                                        <strong>Good (85%)</strong>
+                                    </div>
+                                    <div class="eval-bar"><div class="eval-bar-fill bg-indigo" style="width: 85%;"></div></div>
+                                </div>
+                                <div class="eval-bar-item">
+                                    <div class="eval-label">
+                                        <span>Anxiety Composure</span>
+                                        <strong>Solid (90%)</strong>
+                                    </div>
+                                    <div class="eval-bar"><div class="eval-bar-fill bg-purple" style="width: 90%;"></div></div>
+                                </div>
+                            </div>
+                            <div class="coach-advice-box">
+                                <i data-lucide="quote" class="quote-icon"></i>
+                                <p id="report-coach-text">
+                                    "Your speaking pace was beautifully aligned with top professional standard communicators. You showed solid pause control when answering difficult technical problems. Continue practicing calming breathing sequences right before interviews to make this high comfort-state subconscious!"
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Local History Panel -->
+                        <div class="glass-card history-card">
+                            <h3><i data-lucide="calendar"></i> Practice History & Progress</h3>
+                            <p class="section-desc">Watch your comfort and clarity index rise with consecutive sessions:</p>
+                            <div class="history-list" id="history-items">
+                                <div class="history-empty">No previous sessions logged. Finish this practice to record your first entry!</div>
+                            </div>
+                            <button class="btn btn-outline btn-sm w-full" id="btn-clear-history">
+                                <i data-lucide="refresh-cw"></i> Reset Analytics
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Actions -->
+            <div class="report-actions">
+                <button class="btn btn-secondary" id="btn-new-interview">
+                    <i data-lucide="refresh-cw"></i> Start New Session
+                </button>
+                <button class="btn btn-outline" id="btn-download-session">
+                    <i data-lucide="download"></i> Download Report (JSON)
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Emergency Guided Breathing Modal (Overlay) -->
+    <div class="modal-overlay hidden" id="calming-modal">
+        <div class="glass-card modal-content breathe-modal-content">
+            <button class="btn-close-modal" id="btn-close-calming-modal">&times;</button>
+            <h3><i data-lucide="wind"></i> Emergency Breathing Pause</h3>
+            <p>Take a 20-second pause. Relax your hands, close your eyes, and follow the visualizer.</p>
+            
+            <div class="breathe-container modal-breathe">
+                <div class="breathe-circle-outer"></div>
+                <div class="breathe-circle-inner"></div>
+                <div class="breathe-instruction">Inhale...</div>
+                <div class="breathe-timer">4s</div>
+            </div>
+            
+            <button class="btn btn-primary" id="btn-close-calming-modal-btn">I'm Ready to Resume</button>
+        </div>
+    </div>
+    <!-- Core Logic & Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
