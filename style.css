@@ -3,6 +3,88 @@
    ---------------------------------------------------- */
 :root {
     /* Color Palette */
+   :root {
+  --primary: #6366f1;      /* indigo - main brand color */
+  --primary-dark: #4338ca;
+  --secondary: #14b8a6;    /* teal - calming accent */
+  --accent: #f59e0b;       /* warm amber - for highlights/CTAs */
+  --success: #22c55e;      /* green - good feedback */
+  --danger: #ef4444;       /* red - filler word warnings */
+  --bg-light: #f8fafc;
+  --bg-gradient: linear-gradient(135deg, #6366f1 0%, #14b8a6 100%);
+  --text-dark: #1e293b;
+  --white: #ffffff;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Colorful header/hero section */
+.hero, header {
+  background: var(--bg-gradient);
+  color: var(--white);
+  padding: 3rem 1.5rem;
+  border-radius: 0 0 24px 24px;
+}
+
+/* Buttons */
+button, .btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Cards (question box, coach panel, etc.) */
+.card, .question-box, .coach-panel {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--secondary);
+}
+
+/* Progress bars / meters (Anxiety Control Index, Pacing) */
+.progress-bar {
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 12px;
+}
+.progress-fill {
+  background: linear-gradient(90deg, var(--secondary), var(--success));
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* Warning/filler word counts */
+.filler-warning {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Grade badges (A-, etc.) */
+.grade-badge {
+  background: var(--accent);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  display: inline-block;
+}
     --bg-base: #04020b;
     --text-primary: #f3f1fa;
     --text-secondary: #9a94b4;
